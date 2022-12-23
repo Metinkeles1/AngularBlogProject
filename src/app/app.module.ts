@@ -9,11 +9,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { BaseService } from './services/base.service';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BlogDialogComponent } from './home/blog-dialog/blog-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    BlogDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +25,9 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MatCardModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    MatDialogModule
   ],
   //*BaseService'i ve httpclientModule eklememizin sebebi serviceten verileri çekerken kullanmamız.
   providers: [BaseService],
