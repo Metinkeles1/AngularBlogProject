@@ -1,1 +1,59 @@
-<p>blog-dialog works!</p>
+<div style="display: flex; justify-content: space-between;">
+    <div class="d-flex align-items-center">
+        <h3 style="margin: 0px;">
+            <span>
+      {{isUpdate ? 'Yazıyı Güncelle' : 'Yazıyı Gör'}}
+    </span>
+        </h3>
+    </div>
+
+    <button (click)="close()" mat-raised-button color="accent" style="font-size: 24px; margin-left: 5px;">
+      x
+    </button>
+</div>
+<mat-divider class="my-2"></mat-divider>
+
+<!--* görüntüleme burada yapılacak -->
+<div *ngIf="!isUpdate">
+    <div class="row mb-3">
+        <div class="col-md-6" style="padding-left: 0px;">
+            <img src="assets/images/image{{imageUrl}}.jpg" class="w-100">
+        </div>
+        <div class="col-md-6">
+            <h2>{{title}}</h2>
+            <p>{{body}}</p>
+        </div>
+    </div>
+    <div class="row" style=" background-color: lightgray; padding: 20px; margin-bottom: 20px;" *ngFor=" let comment of commentData">
+        <div class="col-md-2">
+            <img style="width: 30px; border-radius: 50%;" src="assets/images/profile/profile{{comment.userId}}.jpg" alt="">
+        </div>
+        <div class="col-md-10">
+            <h3>{{comment.name}}</h3>
+            <p>{{comment.body}}</p>
+        </div>
+    </div>
+</div>
+
+<!--* düzenlemenin yapıldığı yer -->
+<div *ngIf="isUpdate">
+    <form [formGroup]="form" style="min-width: 400px;">
+        <div class="container">
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>Blog Başlığı</mat-label>
+                    <input matInput formControlName="title">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>Blog İçeriği</mat-label>
+                    <textarea matInput formControlName="body" cols="60" rows="10"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+        <div>
+            <button [disabled]="!form.valid" (click)="onSubmit()" mat-raised-button color="primary">Güncelle</button>
+        </div>
+    </form>
+</div>

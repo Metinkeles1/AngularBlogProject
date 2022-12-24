@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BlogDialogComponent } from './home/blog-dialog/blog-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatDividerModule } from '@angular/material/divider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatButtonModule,
     HttpClientModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDividerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   //*BaseService'i ve httpclientModule eklememizin sebebi serviceten verileri çekerken kullanmamız.
   providers: [BaseService],
